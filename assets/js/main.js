@@ -12,7 +12,9 @@
 		$header = $('#header'),
 		$nav = $('#nav'),
 		$main = $('#main'),
-		$navPanelToggle, $navPanel, $navPanelInner;
+		$navPanelToggle, $navPanel, $navPanelInner,
+		$navTab = $('.navTab'),
+		$displayWindow = $('.display-window');
 
 	// Breakpoints.
 		breakpoints({
@@ -254,5 +256,17 @@
 			});
 
 		}
+
+		//Tab functionality // By Remington Wells
+		$navTab.on('click',function(e){
+			let displayLink = $(e.currentTarget).attr('display-id'); 
+			let displayPage = $('#'+displayLink);
+
+			$navTab.removeClass('active');
+			$(e.currentTarget).addClass('active');
+
+			$displayWindow.addClass('no-visual');
+			displayPage.removeClass('no-visual');
+		});
 
 })(jQuery);
